@@ -11,6 +11,7 @@ import { Service, SERVICE_OPTIONS } from '../../../utils/data-utils';
 import { useOnboardingSubmit } from '../../../hooks/useOnBoardingSubmit';
 import { OnboardingValues } from '../../../types/field.type';
 import { useServices } from '../../../hooks/useService';
+import React from 'react';
 
 export default function OnboardingForm() {
   const searchParams = useSearchParams();
@@ -36,9 +37,11 @@ export default function OnboardingForm() {
     },
   });
 
- const { register, handleSubmit, watch, setValue } = form;
+ const { register, handleSubmit, watch, setValue , reset} = form;
  const { errors, isSubmitting } = form.formState;
   const { services, toggleService } = useServices(watch, setValue);
+  const [, setServices] = React.useState<string[]>([]);
+  
 
   return (
     <>
@@ -59,6 +62,9 @@ export default function OnboardingForm() {
           services={services}
           toggleService={toggleService}
           isSubmitting={isSubmitting}
+          setValue={setValue} 
+        setServices={setServices} 
+        reset={reset}
         />
       </form>
     </>
