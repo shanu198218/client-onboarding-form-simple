@@ -1,6 +1,6 @@
 
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { onboardingSchema } from "../schemas/form.schema";
+import { onboardingSchema } from "../src/schemas/form.schema";
 import z from "zod";
 import { Service } from "../utils/data-utils";
 

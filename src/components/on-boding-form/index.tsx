@@ -5,13 +5,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import Alert from '../common/form/alert';
 import FormFields from '../form-filed';
-import { onboardingSchema } from '../../../schemas/form.schema';
-import { todayInputValue } from '../../../utils/helper-utils';
-import { Service, SERVICE_OPTIONS } from '../../../utils/data-utils';
-import { useOnboardingSubmit } from '../../../hooks/useOnBoardingSubmit';
-import { OnboardingValues } from '../../../types/field.type';
-import { useServices } from '../../../hooks/useService';
+import { onboardingSchema } from '../../schemas/form.schema';
+import { todayInputValue } from '../../utils/helper-utils';
+import { Service, SERVICE_OPTIONS } from '../../utils/data-utils';
+
 import React from 'react';
+import { useOnboardingSubmit } from '@/hooks/useOnBoardingSubmit';
+import { OnboardingValues } from '@/types/field.type';
+import { useServices } from '@/hooks/useService';
 
 export default function OnboardingForm() {
   const searchParams = useSearchParams();

@@ -1,5 +1,5 @@
 import React from "react";
-import { variantClasses } from "../../../../utils/color-utils";
+import { variantClasses } from "../../../utils/color-utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;

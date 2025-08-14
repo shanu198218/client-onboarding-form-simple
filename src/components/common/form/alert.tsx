@@ -1,4 +1,4 @@
-import { AlertType } from "../../../../utils/data-utils";
+import { AlertType } from "../../../utils/data-utils";
 export default function Alert({
   type,
   message,
