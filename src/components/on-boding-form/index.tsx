@@ -7,7 +7,7 @@ import Alert from '../common/form/alert';
 import FormFields from '../form-filed';
 import { onboardingSchema } from '../../schemas/form.schema';
 import { todayInputValue } from '../../utils/helper-utils';
-import { Service, SERVICE_OPTIONS } from '../../utils/data-utils';
+import { Service, ServiceOptions } from '../../utils/data-utils';
 
 import React from 'react';
 import { useOnboardingSubmit } from '@/hooks/useOnBoardingSubmit';
@@ -20,7 +20,7 @@ export default function OnboardingForm() {
   const decodedService = useMemo<Service | undefined>(() => {
     if (!prefillService) return undefined;
     const decoded = decodeURIComponent(prefillService) as Service;
-    return SERVICE_OPTIONS.includes(decoded) ? decoded : undefined;
+    return ServiceOptions.includes(decoded) ? decoded : undefined;
   }, [prefillService]);
 
   const { submitOnboardingForm, serverError, successData } = useOnboardingSubmit();

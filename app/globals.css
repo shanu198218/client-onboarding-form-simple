@@ -6,17 +6,9 @@
 }
 
 @theme {
-
-  --color-brand-50:  #f5f7ff;
-  --color-brand-100: #e7ecff;
-  --color-brand-200: #c9d3ff;
-  --color-brand-300: #9fb0ff;
-  --color-brand-400: #6f86ff;
-  --color-brand-500: #3f5cff;   /* use as bg-brand-500, text-brand-500, etc. */
-  --color-brand-600: #2f46d6;
   --color-brand-700: #2436a6;
   --color-brand-800: #1c2a82;
-  --color-brand-900: #172266;
+
 
 }
 

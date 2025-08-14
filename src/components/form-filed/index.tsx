@@ -1,6 +1,6 @@
 import InputField from '../common/form/input-field';
 import ErrorText from '../common/form/error-text';
-import { SERVICE_OPTIONS } from '../../utils/data-utils';
+import { ServiceOptions } from '../../utils/data-utils';
 import { fillDemoData, todayInputValue } from '../../utils/helper-utils';
 import Button from '../common/form/button';
 import { OnboardingFormFieldsProps } from '@/types/field.type';
@@ -19,6 +19,7 @@ export default function FormFields({
     <>
       <InputField
         label="Full name"
+        placeholder='Enter full name'
         required
         id="fullName"
         register={register('fullName')}
@@ -26,6 +27,7 @@ export default function FormFields({
       />
       <InputField
         required
+        placeholder='Enter email'
         label="Email"
         id="email"
         type="email"
@@ -34,6 +36,7 @@ export default function FormFields({
       />
       <InputField
         required
+        placeholder='Enter a company name'
         label="Company name"
         id="companyName"
         register={register('companyName')}
@@ -43,7 +46,7 @@ export default function FormFields({
       <fieldset className="mb-4">
         <legend className="mb-1 block text-sm font-medium">Services interested in</legend>
         <div className="grid grid-cols-2 gap-2">
-          {SERVICE_OPTIONS.map((svc) => (
+          {ServiceOptions.map((svc) => (
             <label
               key={svc}
               className="inline-flex cursor-pointer items-center gap-2 rounded-lg p-2"

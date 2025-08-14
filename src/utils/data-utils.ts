@@ -6,6 +6,6 @@ export const fullNameRegex = /^[A-Za-z][A-Za-z\s'\-]{1,79}$/;
 
 export type AlertType = "error" | "success";
 
-export const SERVICE_OPTIONS = ["UI/UX", "Branding", "Web Dev", "Mobile App"] as const;
+export const ServiceOptions = ["UI/UX", "Branding", "Web Dev", "Mobile App"] as const;
 
 export type Service = z.infer<typeof ServicesEnum>;
