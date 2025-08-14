@@ -3,14 +3,19 @@ import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import { OnboardingValues } from '../types/field.type';
 import { Service } from '../utils/data-utils';
 
-export function useServices(watch: UseFormWatch<OnboardingValues>, setValue: UseFormSetValue<OnboardingValues>) {
+export function useServices(
+  watch: UseFormWatch<OnboardingValues>,
+  setValue: UseFormSetValue<OnboardingValues>
+) {
   const services = watch('services') || [];
 
   const toggleService = useCallback(
     (svc: Service) => {
       setValue(
         'services',
-        services.includes(svc) ? services.filter(s => s !== svc) : [...services, svc],
+        services.includes(svc)
+          ? services.filter((s: Service) => s !== svc) 
+          : [...services, svc],
         { shouldValidate: true }
       );
     },
