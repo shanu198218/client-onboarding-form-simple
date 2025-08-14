@@ -11,11 +11,14 @@
     "format:check": "prettier --check .",
     "prebuild": "npm run format:check && npm run lint && next build"
   },
-
   "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
     "next": "15.4.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.62.0",
+    "react-toastify": "^11.0.5",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
