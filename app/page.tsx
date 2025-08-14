@@ -1,9 +1,9 @@
-import FormComponent from "@/components/form-header";
+import FormComponent from '@/components/form-header';
 
 export default function Home() {
   return (
-  <main >
-      <FormComponent/>
+    <main>
+      <FormComponent />
     </main>
   );
 }
