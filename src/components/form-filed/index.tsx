@@ -1,9 +1,9 @@
 import InputField from '../common/form/input-field';
 import ErrorText from '../common/form/error-text';
-import { SERVICE_OPTIONS } from '../../../utils/data-utils';
-import { fillDemoData, todayInputValue } from '../../../utils/helper-utils';
+import { SERVICE_OPTIONS } from '../../utils/data-utils';
+import { fillDemoData, todayInputValue } from '../../utils/helper-utils';
 import Button from '../common/form/button';
-import { OnboardingFormFieldsProps } from '../../../types/field.type';
+import { OnboardingFormFieldsProps } from '@/types/field.type';
 
 export default function FormFields({
   register,
@@ -15,9 +15,6 @@ export default function FormFields({
   setServices,
   reset,
 }: OnboardingFormFieldsProps) {
-
-    
-    
   return (
     <>
       <InputField
@@ -28,7 +25,7 @@ export default function FormFields({
         error={errors.fullName?.message}
       />
       <InputField
-      required
+        required
         label="Email"
         id="email"
         type="email"
@@ -36,7 +33,7 @@ export default function FormFields({
         error={errors.email?.message}
       />
       <InputField
-      required
+        required
         label="Company name"
         id="companyName"
         register={register('companyName')}
@@ -45,22 +42,22 @@ export default function FormFields({
 
       <fieldset className="mb-4">
         <legend className="mb-1 block text-sm font-medium">Services interested in</legend>
-       <div className="grid grid-cols-2 gap-2">
-  {SERVICE_OPTIONS.map((svc) => (
-    <label
-      key={svc}
-      className="inline-flex cursor-pointer items-center gap-2 rounded-lg p-2"
-    >
-      <input
-        type="checkbox"
-        className="h-4 w-4 appearance-none rounded-full border border-gray-500 checked:bg-blue-500 checked:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
-        checked={services?.includes(svc) || false}
-        onChange={() => toggleService(svc)}
-      />
-      <span className="text-sm">{svc}</span>
-    </label>
-  ))}
-</div>
+        <div className="grid grid-cols-2 gap-2">
+          {SERVICE_OPTIONS.map((svc) => (
+            <label
+              key={svc}
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg p-2"
+            >
+              <input
+                type="checkbox"
+                className="h-4 w-4 appearance-none rounded-full border border-gray-500 checked:border-blue-500 checked:bg-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                checked={services?.includes(svc) || false}
+                onChange={() => toggleService(svc)}
+              />
+              <span className="text-sm">{svc}</span>
+            </label>
+          ))}
+        </div>
 
         {errors.services && <ErrorText>{errors.services.message as string}</ErrorText>}
       </fieldset>
@@ -69,12 +66,12 @@ export default function FormFields({
         label="Budget (USD)"
         id="budgetUsd"
         type="number"
-        register={register('budgetUsd', { valueAsNumber: true })} 
+        register={register('budgetUsd', { valueAsNumber: true })}
         error={errors.budgetUsd?.message}
         props={{ min: 100, max: 1_000_000, step: 1 }}
       />
 
-    <div className="mb-4">
+      <div className="mb-4">
         <label htmlFor="projectStartDate" className="block text-sm font-medium">
           Project start date
         </label>
@@ -83,8 +80,8 @@ export default function FormFields({
           required
           type="date"
           min={todayInputValue()}
-          className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          {...register("projectStartDate")}
+          className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+          {...register('projectStartDate')}
         />
         {errors.projectStartDate && (
           <p role="alert" className="mt-1 text-sm text-red-600">
@@ -101,11 +98,12 @@ export default function FormFields({
         {errors.acceptTerms && <ErrorText>{errors.acceptTerms.message as string}</ErrorText>}
       </div>
 
-<div className=' flex justify-between w-1/2'>
-    <div><Button variant="primary" type="submit" isLoading={isSubmitting}>
-        Submit
-      </Button></div>
-
+      <div className="flex w-1/2 justify-between">
+        <div>
+          <Button variant="primary" type="submit" isLoading={isSubmitting}>
+            Submit
+          </Button>
+        </div>
 
         <Button
           type="button"
@@ -115,18 +113,17 @@ export default function FormFields({
           Demo
         </Button>
 
-         <Button
+        <Button
           type="button"
           variant="danger"
           onClick={() => {
-      reset();         
-      setServices([]);  
-    }}
+            reset();
+            setServices([]);
+          }}
         >
           Clear
         </Button>
-</div>
-      
+      </div>
     </>
   );
 }
