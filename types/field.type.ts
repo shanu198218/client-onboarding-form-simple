@@ -10,6 +10,9 @@ export type OnboardingFormFieldsProps = {
   services: Service[];   
 toggleService: (svc: Service) => void; 
   isSubmitting: boolean;
+setValue: any;
+  setServices: (services: string[]) => void; 
+  reset: () => void;
 };
 
 export type OnboardingValues = z.infer<typeof onboardingSchema>;

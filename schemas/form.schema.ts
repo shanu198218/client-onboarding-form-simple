@@ -24,7 +24,14 @@ export const onboardingSchema = z.object({
     .array(ServicesEnum)
     .min(1, "Select at least one service"),
   
-budgetUsd: z.number().optional(),
+budgetUsd: z
+  .number()
+  .int({ message: "Budget must be an integer" })
+  .min(100, { message: "Budget must be at least 100" })
+  .max(1_000_000, { message: "Budget must be less than 1,000,000" })
+  .optional(),
+
+
 
 
 

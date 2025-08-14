@@ -6,7 +6,7 @@
 }
 
 @theme {
-  /* Example: brand palette */
+
   --color-brand-50:  #f5f7ff;
   --color-brand-100: #e7ecff;
   --color-brand-200: #c9d3ff;
@@ -17,6 +17,7 @@
   --color-brand-700: #2436a6;
   --color-brand-800: #1c2a82;
   --color-brand-900: #172266;
+
 }
 
 body {

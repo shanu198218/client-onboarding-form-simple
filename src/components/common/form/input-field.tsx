@@ -7,20 +7,21 @@ interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 register: UseFormRegisterReturn; 
   props?: React.InputHTMLAttributes<HTMLInputElement>;
+  required? : boolean
 }
 
-export default function InputField({ label, id, error, register, props }: InputFieldProps) {
+export default function InputField({ label, id, error, register, props, required = false }: InputFieldProps) {
   return (
     <div className="mb-4">
       <label htmlFor={id} className="block text-sm font-medium mb-1">
-        {label}
+        {label}{required}
       </label>
       <input
         id={id}
         type="text"
         {...register} 
         {...props}
-        className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-white"
       />
      {error && <ErrorText>{error}</ErrorText>}
     </div>
