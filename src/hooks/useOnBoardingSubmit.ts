@@ -39,7 +39,7 @@ export function useOnboardingSubmit() {
       }
 
       const responseData = await res.json().catch(() => null);
-      toast.success(responseData?.message || 'Form submitted successfully!', successData);
+      toast.success(responseData?.message || 'Form submitted successfully!');
       setSuccessData(data);
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Network error';

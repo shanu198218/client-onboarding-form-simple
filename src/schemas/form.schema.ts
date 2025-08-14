@@ -1,5 +1,5 @@
+import { fullNameRegex, ServicesEnum } from '@/utils/helper-utils';
 import { z } from 'zod';
-import { fullNameRegex, ServicesEnum } from "../utils/data-utils";
 
 export const onboardingSchema = z.object({
   fullName: z

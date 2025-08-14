@@ -1,7 +1,6 @@
 import InputField from '../common/form/input-field';
 import ErrorText from '../common/form/error-text';
-import { ServiceOptions } from '../../utils/data-utils';
-import { fillDemoData, todayInputValue } from '../../utils/helper-utils';
+import { fillDemoData, ServiceOptions, todayInputValue } from '../../utils/helper-utils';
 import Button from '../common/form/button';
 import { OnboardingFormFieldsProps } from '@/types/field.type';
 
@@ -101,7 +100,7 @@ export default function FormFields({
         {errors.acceptTerms && <ErrorText>{errors.acceptTerms.message as string}</ErrorText>}
       </div>
 
-      <div className="flex w-1/2 justify-between">
+      <div className="flex md:gap-6 gap-2">
         <div>
           <Button variant="primary" type="submit" isLoading={isSubmitting}>
             Submit

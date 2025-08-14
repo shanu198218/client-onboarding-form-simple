@@ -15,7 +15,18 @@ export const fillDemoData = (setValue: any, setServices: any) => {
   setValue("budgetUsd", demoFormData.budgetUsd);
   setValue("projectStartDate", demoFormData.projectStartDate);
   setValue("acceptTerms", demoFormData.acceptTerms);
-
   setServices(demoFormData.services);
   setValue("services", demoFormData.services);
 };
+
+import z from "zod";
+
+export const ServicesEnum = z.enum(["UI/UX", "Branding", "Web Dev", "Mobile App"]);
+
+export const fullNameRegex = /^[A-Za-z][A-Za-z\s'\-]{1,79}$/;
+
+export type AlertType = "error" | "success";
+
+export const ServiceOptions = ["UI/UX", "Branding", "Web Dev", "Mobile App"] as const;
+
+export type Service = z.infer<typeof ServicesEnum>;

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,9 +6,7 @@ import { useForm } from 'react-hook-form';
 import Alert from '../common/form/alert';
 import FormFields from '../form-filed';
 import { onboardingSchema } from '../../schemas/form.schema';
-import { todayInputValue } from '../../utils/helper-utils';
-import { Service, ServiceOptions } from '../../utils/data-utils';
-
+import { Service, ServiceOptions, todayInputValue } from '../../utils/helper-utils';
 import React from 'react';
 import { useOnboardingSubmit } from '@/hooks/useOnBoardingSubmit';
 import { OnboardingValues } from '@/types/field.type';
@@ -25,7 +23,7 @@ export default function OnboardingForm() {
 
   const { submitOnboardingForm, serverError, successData } = useOnboardingSubmit();
 
-   const form = useForm<OnboardingValues>({
+  const form = useForm<OnboardingValues>({
     resolver: zodResolver(onboardingSchema),
     defaultValues: {
       fullName: '',
@@ -38,11 +36,10 @@ export default function OnboardingForm() {
     },
   });
 
- const { register, handleSubmit, watch, setValue , reset} = form;
- const { errors, isSubmitting } = form.formState;
+  const { register, handleSubmit, watch, setValue, reset } = form;
+  const { errors, isSubmitting } = form.formState;
   const { services, toggleService } = useServices(watch, setValue);
   const [, setServices] = React.useState<string[]>([]);
-  
 
   return (
     <>
@@ -50,9 +47,7 @@ export default function OnboardingForm() {
       {successData && (
         <Alert type="success">
           <p className="mb-1 font-medium">Submitted successfully!</p>
-          <pre className="text-xs whitespace-pre-wrap">
-            {JSON.stringify(successData, null, 2)}
-          </pre>
+          <pre className="text-xs whitespace-pre-wrap">{JSON.stringify(successData, null, 2)}</pre>
         </Alert>
       )}
 
@@ -63,9 +58,9 @@ export default function OnboardingForm() {
           services={services}
           toggleService={toggleService}
           isSubmitting={isSubmitting}
-          setValue={setValue} 
-        setServices={setServices} 
-        reset={reset}
+          setValue={setValue}
+          setServices={setServices}
+          reset={reset}
         />
       </form>
     </>
