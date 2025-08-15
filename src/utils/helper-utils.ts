@@ -1,5 +1,7 @@
 import { demoFormData } from './data';
 import z from 'zod';
+import { UseFormSetValue } from 'react-hook-form';
+import { OnboardingValues } from '@/types/field.type';
 
 export function todayInputValue() {
   const d = new Date();
@@ -8,15 +10,18 @@ export function todayInputValue() {
   return `${d.getFullYear()}-${mm}-${dd}`;
 }
 
-export const fillDemoData = (setValue: any, setServices: any) => {
+export const fillDemoData = (
+  setValue: UseFormSetValue<OnboardingValues>,
+  setServices: (services: Service[]) => void,
+) => {
   setValue('fullName', demoFormData.fullName);
   setValue('email', demoFormData.email);
   setValue('companyName', demoFormData.companyName);
   setValue('budgetUsd', demoFormData.budgetUsd);
   setValue('projectStartDate', demoFormData.projectStartDate);
   setValue('acceptTerms', demoFormData.acceptTerms);
-  setServices(demoFormData.services);
-  setValue('services', demoFormData.services);
+  setServices(demoFormData.services as Service[]);
+  setValue('services', demoFormData.services as Service[]);
 };
 
 export const ServicesEnum = z.enum(['UI/UX', 'Branding', 'Web Dev', 'Mobile App']);
