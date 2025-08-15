@@ -8,9 +8,9 @@ import FormFields from '../form-filed';
 import { onboardingSchema } from '../../schemas/form.schema';
 import { Service, ServiceOptions, todayInputValue } from '../../utils/helper-utils';
 import React from 'react';
-import { useOnboardingSubmit } from '@/hooks/useOnBoardingSubmit';
+import { useOnboardingSubmit } from '@/hooks/use-on-boarding-submit';
 import { OnboardingValues } from '@/types/field.type';
-import { useServices } from '@/hooks/useService';
+import { useServices } from '@/hooks/use-service';
 
 export default function OnboardingForm() {
   const searchParams = useSearchParams();
