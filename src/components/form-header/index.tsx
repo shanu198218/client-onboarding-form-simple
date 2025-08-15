@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import OnBardingForm from '../on-boding-form';
 
 export default function Form() {
@@ -8,7 +9,9 @@ export default function Form() {
           Client Onboarding form
         </h1>
 
-        <OnBardingForm />
+        <Suspense fallback={<div>Loading...</div>}>
+          <OnBardingForm />
+        </Suspense>
       </div>
     </main>
   );

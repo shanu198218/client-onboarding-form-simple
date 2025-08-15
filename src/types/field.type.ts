@@ -1,4 +1,4 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import z from 'zod';
 import { onboardingSchema } from '@/schemas/form.schema';
 import { Service } from '@/utils/helper-utils';
@@ -9,7 +9,7 @@ export type OnboardingFormFieldsProps = {
   services: Service[];
   toggleService: (svc: Service) => void;
   isSubmitting: boolean;
-  setValue: any;
+  setValue: UseFormSetValue<OnboardingValues>;
   setServices: (services: string[]) => void;
   reset: () => void;
 };

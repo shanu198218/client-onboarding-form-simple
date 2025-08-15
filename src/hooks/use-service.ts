@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import { OnboardingValues } from '../types/field.type';
 import { Service } from '@/utils/helper-utils';
@@ -7,7 +7,7 @@ export function useServices(
   watch: UseFormWatch<OnboardingValues>,
   setValue: UseFormSetValue<OnboardingValues>,
 ) {
-  const services = useMemo(() => watch('services') || [], [watch]);
+  const services = watch('services') || [];
 
   const toggleService = useCallback(
     (svc: Service) => {

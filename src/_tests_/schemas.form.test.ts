@@ -105,8 +105,9 @@ describe('onboardingSchema', () => {
   test('unknown keys are stripped (schema not strict)', () => {
     const r = onboardingSchema.safeParse({ ...baseValid, extra: 123 });
     expect(r.success).toBe(true);
+
     if (r.success) {
-      expect((r.data as any).extra).toBeUndefined();
+      expect('extra' in r.data).toBe(false);
     }
   });
 });
