@@ -18,15 +18,16 @@ export default function FormFields({
     <>
       <InputField
         label="Full name"
-        placeholder='Enter full name'
+        placeholder="Enter full name"
         required
+        type="text"
         id="fullName"
         register={register('fullName')}
         error={errors.fullName?.message}
       />
       <InputField
         required
-        placeholder='Enter email'
+        placeholder="Enter email"
         label="Email"
         id="email"
         type="email"
@@ -35,7 +36,8 @@ export default function FormFields({
       />
       <InputField
         required
-        placeholder='Enter a company name'
+        placeholder="Enter a company name"
+        type="text"
         label="Company name"
         id="companyName"
         register={register('companyName')}
@@ -73,24 +75,15 @@ export default function FormFields({
         props={{ min: 100, max: 1_000_000, step: 1 }}
       />
 
-      <div className="mb-4">
-        <label htmlFor="projectStartDate" className="block text-sm font-medium">
-          Project start date
-        </label>
-        <input
-          id="projectStartDate"
-          required
-          type="date"
-          min={todayInputValue()}
-          className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-          {...register('projectStartDate')}
-        />
-        {errors.projectStartDate && (
-          <p role="alert" className="mt-1 text-sm text-red-600">
-            {errors.projectStartDate.message}
-          </p>
-        )}
-      </div>
+      <InputField
+        required
+        type="date"
+        label="Project start date"
+        id="projectStartDate"
+        props={{ min: todayInputValue() }}
+        register={register('projectStartDate')}
+        error={errors.projectStartDate?.message}
+      />
 
       <div className="mb-6">
         <label className="inline-flex items-center gap-2">
@@ -100,7 +93,7 @@ export default function FormFields({
         {errors.acceptTerms && <ErrorText>{errors.acceptTerms.message as string}</ErrorText>}
       </div>
 
-      <div className="flex md:gap-6 gap-2">
+      <div className="flex gap-2 md:gap-6">
         <div>
           <Button variant="primary" type="submit" isLoading={isSubmitting}>
             Submit

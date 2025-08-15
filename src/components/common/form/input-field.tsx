@@ -9,6 +9,7 @@ interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   register: UseFormRegisterReturn;
   props?: React.InputHTMLAttributes<HTMLInputElement>;
   required?: boolean;
+  type: string;
 }
 
 export default function InputField({
@@ -19,6 +20,7 @@ export default function InputField({
   props,
   required = false,
   placeholder,
+  type,
 }: InputFieldProps) {
   return (
     <div className="mb-4">
@@ -29,7 +31,7 @@ export default function InputField({
       <input
         id={id}
         placeholder={placeholder}
-        type="text"
+        type={type}
         {...register}
         {...props}
         className="mt-1 w-full rounded-md border border-gray-300 p-2 placeholder:text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-white focus:outline-none"
