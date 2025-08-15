@@ -3,7 +3,6 @@ import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import { OnboardingValues } from '../types/field.type';
 import { Service } from '@/utils/helper-utils';
 
-
 export function useServices(
   watch: UseFormWatch<OnboardingValues>,
   setValue: UseFormSetValue<OnboardingValues>

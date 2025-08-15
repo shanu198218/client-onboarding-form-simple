@@ -1,11 +1,9 @@
-'use client';
-
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { OnboardingValues } from '../types/field.type';
 import { SubmitHandler } from 'react-hook-form';
 
-export function useOnboardingSubmit() {
+export function useOnboardingSubmit(reset : () => void) {
   const [serverError, setServerError] = useState<string | null>(null);
   const [successData, setSuccessData] = useState<OnboardingValues | null>(null);
 
@@ -41,12 +39,13 @@ export function useOnboardingSubmit() {
       const responseData = await res.json().catch(() => null);
       toast.success(responseData?.message || 'Form submitted successfully!');
       setSuccessData(data);
+      reset()
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Network error';
       setServerError(message);
       toast.error(message || "Please try again letter")
     }
-  }, []);
+  }, [reset]);
 
   return { submitOnboardingForm, serverError, successData } as const;
 }

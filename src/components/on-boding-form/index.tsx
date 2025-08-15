@@ -21,7 +21,6 @@ export default function OnboardingForm() {
     return ServiceOptions.includes(decoded) ? decoded : undefined;
   }, [prefillService]);
 
-  const { submitOnboardingForm, serverError, successData } = useOnboardingSubmit();
 
   const form = useForm<OnboardingValues>({
     resolver: zodResolver(onboardingSchema),
@@ -37,6 +36,7 @@ export default function OnboardingForm() {
   });
 
   const { register, handleSubmit, watch, setValue, reset } = form;
+  const { submitOnboardingForm, serverError, successData } = useOnboardingSubmit(reset);
   const { errors, isSubmitting } = form.formState;
   const { services, toggleService } = useServices(watch, setValue);
   const [, setServices] = React.useState<string[]>([]);
