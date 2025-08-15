@@ -21,7 +21,6 @@ export default function OnboardingForm() {
     return ServiceOptions.includes(decoded) ? decoded : undefined;
   }, [prefillService]);
 
-
   const form = useForm<OnboardingValues>({
     resolver: zodResolver(onboardingSchema),
     defaultValues: {
