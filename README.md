@@ -35,8 +35,8 @@ It demonstrates form validation, accessibility basics, clean component structure
 <input type="text" {...register("fullName")} /> : RHF register input
 
 Assumptions
-- projectStartDate defaults to today’s date if the user doesn’t change it.
-- Since a working API endpoint wasn’t given, a CORS-enabled public test API (https://httpbin.org/) service post request was  used for submission verification.
+
+- Since a working API endpoint wasn’t given, a public test API (https://httpbin.org/) service post request was  used for submission verification.
 - Added a "Demo" button for testing purposes, which auto-fills sample form data (e.g., full name, email, company, selected service). This is for demonstration only and would not be present in production.
 - Date Handling: The Default project start date is pre-filled with today’s date.
 
